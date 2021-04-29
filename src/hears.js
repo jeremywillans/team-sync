@@ -24,15 +24,16 @@ module.exports = (framework) => {
       // Get Team Details
       bot.framework.webex.teams.get(room.teamId).then((team) => {
         // Check if Team General Space
-        // WARNING - Logic FLAW if Team Space has same name as Team.
-        if (room.title === team.name && room.teamId === team.id) {
+        if (room.created === team.created) {
           // Verify Moderator Initiated Sync
           bot.framework.webex.memberships
             .list({ roomId: room.id, personId: trigger.personId })
             .then((membership) => {
               if (membership.items[0].isModerator) {
                 debug('running full sync from General Space');
-                bot.say(`<@personId:${trigger.personId}>, Running Team Re-sync...`);
+                bot.say(
+                  `<@personId:${trigger.personId}>, Initiate Team Re-sync...`,
+                );
                 bot.framework.webex.memberships
                   .list({ roomId: room.id })
                   .then((members) => {
@@ -45,7 +46,9 @@ module.exports = (framework) => {
                     });
                   });
               } else {
-                bot.say(`<@personId:${trigger.personId}>, you are not a moderator.`);
+                bot.say(
+                  `<@personId:${trigger.personId}>, you are not a moderator.`,
+                );
               }
             });
         }

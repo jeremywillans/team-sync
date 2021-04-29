@@ -41,8 +41,7 @@ module.exports = (framework) => {
       // Get Team Details
       bot.framework.webex.teams.get(room.teamId).then((team) => {
         // Check if Team General Space
-        // WARNING - Logic FLAW if Team Space has same name as Team.
-        if (room.title === team.name && room.teamId === team.id) {
+        if (room.created === team.created) {
           debug('new member in general space, adding to team spaces');
           bot.say(`Running Sync for <@personId:${trigger.personId}>`);
           utils.syncMember(framework, bot, trigger, room);
