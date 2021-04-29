@@ -21,7 +21,7 @@ try {
     messageFormat: 'markdown',
   };
   if (process.env.WEBHOOK_URL) {
-    config.webhookUrl = process.env.WEBHOOK_URL || 'hello';
+    config.webhookUrl = process.env.WEBHOOK_URL;
     config.port = process.env.PORT || 3000;
     // eslint-disable-next-line operator-linebreak
     config.webhookSecret =
