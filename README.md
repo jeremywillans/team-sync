@@ -1,4 +1,4 @@
-# teamsync
+# team-sync
 
 Webex Team Sync Bot allows you to automatically add new Team Members to Team Spaces.
 
@@ -11,14 +11,14 @@ When a new user is added to the team (in the General Space), they will be added 
     **Note:** Webhook, Secret and Port can be omitted if you want to use Websockets.
 
     ```
-    > docker build --tag teamsync .
-    > docker create --name teamsync \
+    > docker build --tag team-sync .
+    > docker create --name team-sync \
       -e TOKEN=bot-token-from-developer-dot-webex-dot-com \
       (optional) -e WEBHOOK_URL=https://yourdomain.com/framework \
       (optional) -e SECRET=replace-me-with-a-secret-string \
       (optional) -e PORT=3000 \
       (optional) -e GUIDE_EMAILS=comma-separated-list-of-people-required-in-space-for-bot-to-function
-      teamsync
+      team-sync
 
 3. Verify Docker logs to ensure bot as started successfully.
 

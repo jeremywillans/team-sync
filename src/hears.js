@@ -1,4 +1,4 @@
-const debug = require('debug')('teamsync:hears');
+const debug = require('debug')('team-sync:hears');
 const utils = require('./functions.js');
 
 module.exports = (framework) => {

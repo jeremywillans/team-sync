@@ -1,4 +1,4 @@
-const debug = require('debug')('teamsync:utils');
+const debug = require('debug')('team-sync:utils');
 
 function utils() {
   async function syncMember(framework, bot, person, srcRoom) {

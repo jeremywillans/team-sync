@@ -1,6 +1,6 @@
 const Framework = require('webex-node-bot-framework');
 const webhook = require('webex-node-bot-framework/webhook');
-const debug = require('debug')('teamsync:app');
+const debug = require('debug')('team-sync:app');
 const dotenv = require('dotenv');
 const express = require('express');
 const path = require('path');
