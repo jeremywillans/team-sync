@@ -17,7 +17,7 @@ function utils() {
         const roomBot = framework.getBotByRoomId(room.id);
         if (roomBot) {
           // Check if already a member
-          bot.framework.webex.memberships
+          roomBot.framework.webex.memberships
             .list({ roomId: room.id, personId: person.personId })
             .then((result) => {
               if (result.items.length === 0) {
