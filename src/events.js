@@ -46,8 +46,10 @@ module.exports = (framework) => {
           if (process.env.DEBUG_SPACE) {
             const debugBot = framework.getBotByRoomId(process.env.DEBUG_SPACE);
             if (debugBot) {
-              debug(trigger);
-              debugBot.say(`Running Sync for ${trigger.personDisplayName}`);
+              const buff = Buffer.from(room.id, 'base64');
+              const base64 = buff.toString('utf-8');
+              const roomUid = base64.slice(base64.lastIndexOf('/') + 1);
+              debugBot.say('html', `Running Sync for ${trigger.personDisplayName} in <a href="webexteams://im?space=${roomUid}">${room.title}</a>`);
             } else {
               bot.say(`Running Sync for <@personId:${trigger.personId}>`);
             }
