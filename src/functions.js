@@ -13,6 +13,10 @@ function utils() {
           debug('skipping general room');
           return;
         }
+        if ((process.env.DEBUG_SPACE) && (room.id === process.env.DEBUG_SPACE)) {
+          debug('skipping debug space');
+          return;
+        }
         // If Bot is member of space, add user.
         const roomBot = framework.getBotByRoomId(room.id);
         if (roomBot) {

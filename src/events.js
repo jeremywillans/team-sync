@@ -43,7 +43,17 @@ module.exports = (framework) => {
         // Check if Team General Space
         if (room.created === team.created) {
           debug('new member in general space, adding to team spaces');
-          bot.say(`Running Sync for <@personId:${trigger.personId}>`);
+          if (process.env.DEBUG_SPACE) {
+            const debugBot = framework.getBotByRoomId(process.env.DEBUG_SPACE);
+            if (debugBot) {
+              debug(trigger);
+              debugBot.say(`Running Sync for ${trigger.personDisplayName}`);
+            } else {
+              bot.say(`Running Sync for <@personId:${trigger.personId}>`);
+            }
+          } else {
+            bot.say(`Running Sync for <@personId:${trigger.personId}>`);
+          }
           utils.syncMember(framework, bot, trigger, room);
         }
       });

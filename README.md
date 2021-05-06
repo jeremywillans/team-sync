@@ -18,6 +18,7 @@ When a new user is added to the team (in the General Space), they will be added 
       (optional) -e SECRET=replace-me-with-a-secret-string \
       (optional) -e PORT=3000 \
       (optional) -e GUIDE_EMAILS=comma-separated-list-of-people-required-in-space-for-bot-to-function \
+      (optional) -e DEBUG_SPACE=room-id-of-space-for-team-sync-output-from-new-members \
       team-sync
 
 3. Verify Docker logs to ensure bot as started successfully.
