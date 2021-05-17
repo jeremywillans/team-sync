@@ -13,7 +13,7 @@ function utils() {
           debug('skipping general room');
           return;
         }
-        if ((process.env.DEBUG_SPACE) && (room.id === process.env.DEBUG_SPACE)) {
+        if (process.env.DEBUG_SPACE && room.id === process.env.DEBUG_SPACE) {
           debug('skipping debug space');
           return;
         }
@@ -47,8 +47,7 @@ function utils() {
                   const base64 = buff.toString('utf-8');
                   const roomUid = base64.slice(base64.lastIndexOf('/') + 1);
                   bot.say(
-                    'html',
-                    `Unable to add ${person.personDisplayName} to <a href="webexteams://im?space=${roomUid}">${room.title}</a>, I am not a Moderator.`,
+                    `Unable to add ${person.personDisplayName} in [${room.title}](webexteams://im?space=${roomUid})`,
                   );
                 }
               }
