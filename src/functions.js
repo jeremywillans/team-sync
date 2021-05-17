@@ -28,8 +28,8 @@ function utils() {
                 // Verify Moderation Status
                 if (
                   // eslint-disable-next-line operator-linebreak
-                  !roomBot.isLocked ||
-                  (roomBot.isModerator && roomBot.isLocked)
+                  !roomBot.room.isLocked ||
+                  (roomBot.isModerator && roomBot.room.isLocked)
                 ) {
                   roomBot
                     .add(person.personEmail)
